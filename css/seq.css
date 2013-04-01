@@ -1,0 +1,155 @@
+body {
+    padding: 0 0;
+}
+
+body>.container-fluid {
+    padding: 0;
+}
+
+.toolbar {
+    height: 38px;
+    background: url("../img/bg_map_toolbar.gif") repeat-x scroll 0 0 #1E65AF;
+}
+
+.your-code-here {
+    color: transparent;
+    height: 38px;
+    margin-left: -5px;
+    background: url(../img/you_code_here.png) no-repeat;
+}
+
+div.logo {
+    color: transparent;
+    height: 38px;
+
+    background: url(../img/logo.png) no-repeat;
+}
+
+.side-bar {
+    height: 810px;
+}
+
+div.CodeMirror {
+    height: 100%;
+}
+
+.diagram {
+    background: #fafafa;
+    padding: 5px;
+    position: relative;
+    height: 800px;
+}
+
+.entity-layer, .message-box-layer {
+    position: absolute;
+    width: 100%;
+    height: 800px;
+}
+
+.input-area {
+    height: 790px;
+}
+
+.life-lane {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 13px;
+    height: 100%;
+}
+
+.span1 {
+    background: #F5F5F5;
+    border-radius: 4px;
+    height: 800px;
+    width: auto;
+}
+
+.span1.lifeline {
+    width: auto;
+    border-radius: 4px;
+    height: 800px;
+    background: url("../img/lifeline-bg.png") center top repeat-y #F5F5F5;
+}
+
+.lifeline label {
+    padding: 0 10px;
+    color: #FFF;
+    background: #0477a9;
+    border-radius: 4px 4px 0 0;
+    line-height: 40px;
+}
+
+
+.message-box {
+    margin: 0 auto;
+    display: block;
+
+    position: absolute;
+}
+
+.message-bar {
+    width: 11px;
+    border-radius: 2px;
+    border: 1px solid #0477a9;
+    background: #FFF;
+    display: block;
+    float: right;
+}
+
+.invoke {
+    position: absolute;
+    text-align: center;
+    left: 11px;
+    z-index: 999;
+}
+
+.invoke-line {
+    display: block;
+    border-bottom: 1px solid #0477a9;
+}
+
+.invoke-line-internal {
+    border: 1px solid #0477a9;
+    border-left-style: none;
+    border-radius: 2px;
+    width: 20px;
+    height: 8px;
+    margin-top:-6px;
+    display: block;
+}
+
+.invoke-name {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 12px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: -18px;
+}
+
+.invoke-arrow-r {
+    width: 9px;
+    height: 11px;
+    position: absolute;
+    background: url("../img/arrow-r.png") no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    right: 0;
+    bottom: -5px;
+}
+
+.invoke-arrow-l {
+    width: 9px;
+    height: 11px;
+    position: absolute;
+    background: url("../img/arrow-l.png") no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    left: 0;
+    bottom: -5px;
+}
+
+.powered-by {
+    text-align: center;
+}
