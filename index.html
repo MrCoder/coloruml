@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="sequence">
+<head>
+    <meta charset="utf-8">
+    <title>ColorUML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="js/3rd-party/angular-1.0.1/angular-1.0.1.js"></script>
+    <script src="js/3rd-party/angular-ui-0.3.2/build/angular-ui.js"></script>
+    <script type="text/javascript" src="js/3rd-party/codemirror-3.0/lib/codemirror.js"></script>
+    <script type="text/javascript" src="js/3rd-party/codemirror-3.0/mode/javascript/javascript.js"></script>
+
+
+    <script src="js/src/util/string.js"></script>
+    <script src="js/src/colorSeq2.js"></script>
+    <script type="text/javascript" src="js/src/message.js"></script>
+    <script type="text/javascript" src="js/src/message-parser.js"></script>
+    <script type="text/javascript" src="js/src/expression-parser.js"></script>
+    <script type="text/javascript" src="js/src/message-converter.js"></script>
+    <script type="text/javascript" src="js/src/entities.js"></script>
+    <script type="text/javascript" src="js/src/entity-factory.js"></script>
+    <script type="text/javascript" src="js/src/message-box-factory.js"></script>
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="css/seq.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="js/3rd-party/angular-ui-0.3.2/build/angular-ui.css">
+    <link rel="stylesheet" type="text/css" href="js/3rd-party/codemirror-3.0/theme/ambiance.css">
+    <link rel="stylesheet" type="text/css" href="js/3rd-party/codemirror-3.0/lib/codemirror.css">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+
+<body ng-controller="SequenceController">
+
+<div class="container-fluid">
+    <div id="toolbar" class="row-fluid toolbar">
+        <div class="span3 logo">Color UML</div>
+        <div class="span4 offset5 your-code-here">Your code here</div>
+    </div>
+    <div class="row-fluid content">
+        <div class="span8 diagram" seq-diagram>
+            <div class="entity-layer">
+                <div entity class="span1 lifeline" ng-repeat="entity in getEntities()" id="{{entity.name}}">
+                    <label>{{entity.name}}</label>
+
+                    <div class="life-lane"></div>
+                </div>
+            </div>
+            <div class="message-box-layer">
+
+                <!--If bind-entity is an angular Expression, it will be evaluated after link function is executed,
+                    which means if you depend on the value of the expression, you need to call it with $timeout -->
+                <div message-box from-entity="{{messageBox.from}}" to-entity="{{messageBox.entityName}}" class="message-box" ng-style="messageBox.style"
+                     ng-repeat="messageBox in getMessageBoxes()">
+                    <div message-bar bind-entity="{{messageBox.entityName}}" class="message-bar" ng-style="messageBox.style"></div>
+                    <div class="invoke" ng-style="invoke.style" invoke from-entity="{{messageBox.from}}" to-entity="{{messageBox.entityName}}">
+                        <div class="invoke-name">
+                            {{messageBox.name}}
+                        </div>
+                        <!--<span class="{{invoke.line.styleClass}}"></span>-->
+                        <span class="invoke-line-internal" ng-show="messageBox.isInternal"><span class="invoke-arrow-l"></span></span>
+                        <span class="invoke-line" ng-show="!messageBox.isInternal && messageBox.left2right"><span class="invoke-arrow-r"></span></span>
+                        <span class="invoke-line" ng-show="!messageBox.isInternal && !messageBox.left2right"><span class="invoke-arrow-l"></span></span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="side-bar span4">
+            <textarea ui-codemirror="{theme:'ambiance'}" class="input-area" id="content" name="content"
+                      ng-model="pseudoCode"></textarea>
+        </div>
+
+    </div>
+    <footer class="footer powered-by">
+        <small>Powered by XiaoPeng.me</small>
+    </footer>
+
+</div>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/google-code-prettify/prettify.js"></script>
+<script src="assets/js/bootstrap-transition.js"></script>
+<script src="assets/js/bootstrap-alert.js"></script>
+<script src="assets/js/bootstrap-modal.js"></script>
+<script src="assets/js/bootstrap-dropdown.js"></script>
+<script src="assets/js/bootstrap-scrollspy.js"></script>
+<script src="assets/js/bootstrap-tab.js"></script>
+<script src="assets/js/bootstrap-tooltip.js"></script>
+<script src="assets/js/bootstrap-popover.js"></script>
+<script src="assets/js/bootstrap-button.js"></script>
+<script src="assets/js/bootstrap-collapse.js"></script>
+<script src="assets/js/bootstrap-carousel.js"></script>
+<script src="assets/js/bootstrap-typeahead.js"></script>
+<script src="assets/js/application.js"></script>
+
+
+</body>
+</html>
