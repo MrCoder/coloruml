@@ -48,7 +48,7 @@ function SequenceController($scope, entitiesService, messageBoxesService) {
         "}\n"+
         "Employer.contact(XiaoPeng){\n"+
         "  // Preferred approach\n"+
-        "  Telephone.call('+8613810415430')\n"+
+        "  Telephone.call('0431580958')\n"+
         "  Email.send('eagle.xiao@gmail.com')\n" +
         "}\n"+
         "\n"+
