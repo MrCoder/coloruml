@@ -53,7 +53,7 @@ function SequenceController($scope, entitiesService, messageBoxesService) {
         "}\n"+
         "\n"+
         "Employer.interview(XiaoPeng){\n"+
-        "  Skype.call('eagle.xiao.cn'){\n"+
+        "  Telephone.call('eagle.xiao.cn'){\n"+
         "    XiaoPeng.queryDeliveryExperience(){\n"+
         "      queryJavaExperience()\n"+
         "      queryCSharpExperience()\n"+
