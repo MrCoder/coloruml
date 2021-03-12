@@ -19,7 +19,7 @@
 * New **inflector** filter (previously named **prettifier**)
   * Added 2 alternative modes, now contains: humanize, underscore and variable
 * **Passthrough directive** (uiJq) now fixes common ngModel problems due to trigger(change). Can optionally be disabled
-* Removed **Length Filter** (you can instead do {{ ( myArray | filter: { gender:'m' } ).length }})
+* Removed **Length Filter**
 * Added **validate directive**, allows you to pass validation functions
 * **Sortable directive**
 * Fixed **unique filter**
